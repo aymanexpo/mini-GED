@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block script %}
+    <script>
+        var URLshowfile={% url 'showfile' %}
+
+    </script>
+    <script type="text/javascript" src="{% static 'file.js' %}"></script>
+
+{% endblock %}
+{% block content %}
+    <nav class="navbar navbar-light bg-light mb-4">
+        <div class="row justify-content-left">
+        <div class="col-12">
+            <p>
+                <a href="{% url 'upload_Docs' %}" class="btn btn-primary">Upload Docs</a>
+            </p>
+            <div class="card">
+                <div class="card-body">
+                    <h2>Docs</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Label</th>
+                                    <th>contributeur</th>
+                                    <th>Download</th>
+                                    <th>Delete</th>
+                                    <th>Show</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for docs in docs %}
+                                    <tr>
+
+                                        <td>{{ docs.title }}</td>
+                                        <td>{{ docs.author }}</td>
+                                        <td>
+                                            <a href="{{docs.pdf.url}}" class="btn btn-primary btn-sm" target="_blank">Download file</a>
+                                            <!--{{ docs.pdf }}-->
+                                        </td>
+                                        <td>
+                                            <form method="post" action="{% url 'delete_Docs' docs.pk %}">
+                                                {% csrf_token %}
+                                                <button class="btn btn-danger btn-sm">Delete file</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a class="showfile" id='showfile_{{docs.id}}' >{{ docs.title }}</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div>
+            <iframe id="showfileframe" width="500" height="500" src="./media/Docs/pdf/decompte_1.pdf"  allow="fullscreen" scrolling="auto"></iframe>
+        </div>
+    </nav>
+
+{#    <a class="showfile" id='showfile_{{docs.id}}' >{{ docs.title }}</a>#}
+
+{% endblock %}

@@ -1,0 +1,597 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <style type="text/css"></style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/95dc93da07.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto&display=swap');
+
+/* start: global*/
+    body{
+        font-family: "Roboto", "Helvetica", "Sans-serif";
+        margin: 0;
+        padding: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #777;
+        line-height: 1.7;
+    }
+
+    * {
+        outline: none;
+    }
+
+    *:not(.slick-track):not(.slick-list) {
+        transition: 0.4s;
+    }
+
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    h1, h2, h3, h4, h5 {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 800;
+    }
+
+    h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        color: #000000;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+
+    p.large-paragraph {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+/* end: global */
+/* start: footer styles */
+footer {
+    background: #333333;
+    padding: 1rem 0;
+}
+
+footer .flex {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #777;
+}
+
+footer h5 {
+    color: #000000;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+footer .footer-about {
+    width: 47%;
+}
+
+footer .footer-about p {
+    width: 65%;
+}
+
+footer .footer-quick-links {
+    width: 16%;
+}
+
+footer .footer-quick-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-quick-links ul li {
+    margin: 10px 0;
+}
+
+footer .footer-quick-links ul li a {
+    color: #777;
+    text-decoration: none;
+}
+
+footer .footer-quick-links ul li a:hover {
+    color: #fff;
+}
+
+
+footer small {
+    margin-top: 3rem;
+    font-size: 1rem;
+    display: block;
+    text-align: center;
+}
+
+footer small a {
+    color: #777;
+    text-decoration: none;
+}
+
+footer small a:hover {
+    color: #fff;
+}
+/* end: footer styles */
+
+/* start: media queries */
+@media (max-width: 991px) {
+    #logo {
+        top: 1px;
+    }
+
+    #nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: fixed;
+        background: #fff;
+        right: -100%;
+        top: 0;
+        margin: 0;
+        padding: 2rem;
+        height: 100%;
+        width: 300px;
+        box-sizing: border-box;
+        box-shadow: 5px 0 10px 3px #999;
+    }
+
+    #close-flyout {
+        position: absolute;
+        right: 2rem;
+        top: 1.5rem;
+        font-size: 30px;
+        color: #777;
+        cursor: pointer;
+        display: block;
+        line-height: 1;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 20px 0;
+    }
+
+    nav ul li:first-child {
+        margin-top: 50px;
+    }
+    nav ul li a {
+        font-size: 20px;
+        color: #DCDCDC;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+        color: #f69314;
+    }
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .large-paragraph {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        max-width: 540px;
+    }
+
+    #hero .hero-text {
+        width: 400px;
+    }
+
+    #agents .card {
+        width: 49%;
+    }
+
+    #the-best .flex > img {
+        display: none;
+    }
+
+    #the-best .flex > div {
+        width: 100%;
+    }
+
+    #testimonials-slider p {
+        font-size: 1.2rem;
+    }
+
+    #properties .container:before {
+        top: 2px;
+        font-size: 0.85rem;
+    }
+
+    #properties-slider a.slick-arrow {
+        font-size: 0.85rem;
+    }
+
+    #properties button.rounded {
+        width: 300px;
+    }
+
+    #services .flex > div {
+        width: 48%;
+    }
+
+    #contact .flex {
+        flex-wrap: wrap;
+    }
+
+    #form-container {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    #address-container {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    footer {
+        padding: 6rem 0;
+    }
+
+    footer .flex {
+        flex-wrap: wrap;
+    }
+
+    footer .flex > div {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    footer .flex > div:first-child {
+        margin-top: 0;
+    }
+
+    footer .footer-about p {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    footer .footer-subscribe input {
+        width: 90%;
+    }
+
+    footer h5.follow-us {
+        margin-top: 2rem;
+    }
+}
+        /* end: media queries */
+        /* start: testimonials styles */
+#testimonials {
+    margin-bottom: 8rem;
+}
+
+#testimonials h2 {
+    text-align: center;
+}
+
+#testimonials-slider .slick-slide {
+    text-align: center;
+}
+
+#testimonials-slider blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 1rem auto 3rem;
+    max-width: 740px;
+}
+
+#testimonials-slider .testimonials-caption {
+    width: 200px;
+    margin: 0 auto;
+}
+
+#testimonials-slider .testimonials-caption img {
+    float: left;
+    border-radius: 30px;
+    width: 60px;
+}
+
+.testimonials-caption p {
+    position: relative;
+    top: 13px;
+    font-size: 1.2rem;
+}
+
+#testimonials-slider .slick-arrow {
+    text-decoration: none;
+    position: absolute;
+    font-size: 40px;
+    color: #222;
+    top: 50%;
+    margin-top: -35px;
+    z-index: 1;
+}
+#testimonials-slider .slick-next {
+    right: 0;
+}
+/* end: testimonials styles */
+        @media (max-width: 767px) {
+            #testimonials-slider p {
+        font-size: 1.2rem;
+    }
+        }
+    @media (max-width: 500px) {
+    #testimonials {
+        margin-bottom: 4rem;
+    }
+
+    #testimonials-slider p {
+        font-size: 1rem;
+    }
+
+    #testimonials-slider .slick-arrow {
+        display: none !important;
+    }}
+    </style>
+    <h2>home page</h2>
+    {% if user.is_authenticated %}
+        <p>
+            <strong>Total users registred :</strong>{{ count }}
+        </p>
+    {% endif %}
+    <p>{% if user.is_authenticated %}Bonjour, {{ user.username }}{% else %}Bonjour{% endif %} !</p>
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <div class="container">
+        <p class="navbar-brand">Services : <p>Clicker sur le service que vous voulez consulter ses documents</p></p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      </div>
+    </nav>
+
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'Docs_list' %}">S.Equipement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'Docs_list' %}">S.G.R.I.D</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'Docs_list' %}">S.V.O.P</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'Docs_list' %}">S.Elevage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'Docs_list' %}">S.P.A</a>
+                    </li>
+                        <li class="nav-item">
+                         <a class="navbar-brand" href="{% url 'Docs_list' %}">S.P.P</a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="navbar-brand" href="{% url 'Docs_list' %}">S.A.F</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{% url 'Docs_list' %}">S.Matériel</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+          </div>
+        </nav><br>
+        <center>
+            <p>
+                <a href="{% url 'todo' %}" class="btn btn-primary">demander un document/Voir les demandes</a>
+                <a href="http://www.ormvatafilalet.ma/" class="btn btn-primary">Visiter le site officiel ORMVA/TF</a>
+            </p>
+        </center>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <center><a href="http://www.ormvatafilalet.ma/tiki-index.php?page=PDRME"><h2>Projets de l'ORMVA-TF</h2></a></center>
+                </div>
+          </div>
+        </nav>
+
+        <section id="testimonials">
+        <div class="container">
+            <div id="testimonials-slider">
+                <div>
+                    <blockquote>
+                        <p>"PROJET DE DEVELOPPEMENT RURAL DANS LES ZONES MONTAGNEUSES DE LA PROVINCE D'ERRACHIDIA (PDRME) "</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="http://premiumtravelnews.com/wp-content/uploads/2019/01/20190110_120200.jpg" alt="Client 7" />
+                        <a href="http://www.ormvatafilalet.ma/tiki-index.php?page=PDRME">(PDRME)</a>
+                    </div>
+                </div>
+
+                <div>
+                    <blockquote>
+                        <p>"PROJET DE DEVELOPPEMENT RURAL INTEGRE DE MISE EN VALEUR DES ZONES BOUR ( DRI-MVB ) DANS LES C.R. DE FERKLA EL OULIA ET DE MELLAAB AU NIVEAU DE LA PROVINCE D'ERRACHIDIA"</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="http://www.enpicbcmed.eu/sites/default/files/imagecache/top_image/shutterstock_62560075_368x176_0.jpg" alt="Client 7" />
+                        <a href="http://www.ormvatafilalet.ma/tiki-index.php?page=DRI-MVB">(DRI-MVB)</a>
+                    </div>
+                </div>
+
+                <div>
+                    <blockquote>
+                        <p>"LE SECTEUR AGRICOLE AU CŒUR DE L’INITIATIVE NATIONALE DE DEVELOPPEMENT HUMAIN"</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="https://maroc-diplomatique.net/wp-content/uploads/2020/05/INDH-696x399.jpg" alt="Client 7" />
+                        <a href="http://www.ormvatafilalet.ma/tiki-index.php?page=INDH">INDH</a>
+                    </div>
+                </div>
+
+                <div>
+                    <blockquote>
+                        <p>"MILLENIUM CHALLENGE ACCOUNT"</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="https://www.mcamorocco.ma/themes/custom/mca/assets/images/images_refonte/logo_1.svg" alt="Client 7" />
+                        <a href="http://www.ormvatafilalet.ma/tiki-index.php?page=MCA">MCA</a>
+                    </div>
+                </div>
+
+                <div>
+                    <blockquote>
+                        <p>UN MILLION DE PALMIERS DATTIERS</p>
+                    </blockquote>
+                    <div class="testimonials-caption">
+                        <img src="http://www.aps.dz/media/k2/items/cache/836d5d22c467f03fe4837e5a53b2d48e_M.jpg" alt="Client 7" />
+                        <a href="http://www.ormvatafilalet.ma/tiki-index.php?page=1%20million%20de%20palmiers">MPD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <footer>
+        <div class="flex container">
+            <div class="footer-about">
+                <h5>About</h5>
+                <p>Application de gestion électronique des documments de l'office entre les différents services.</p>
+            </div>
+
+            <div class="footer-quick-links">
+                <h5>Contributeur</h5>
+                <ul>
+                    <li><a href="https://www.facebook.com/aymane.didi.3/">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <small>
+            Copyright &copy; 2020 All rights reserved | This template is made with <span class="fa fa-heart"></span> by <a href="https://www.facebook.com/aymane.didi.3/">Aymane Talibi</a>
+        </small>
+    </footer>
+        <script>
+            $(function(){
+            let headerElem = $('header');
+            let logo = $('#logo');
+            let navMenu = $('#nav-menu');
+            let navToggle = $('#nav-toggle');
+
+            $('#properties-slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                prevArrow: '<a href="#" class="slick-arrow slick-prev">previous</a>',
+                nextArrow: '<a href="#" class="slick-arrow slick-next">next</a>',
+                responsive: [
+                    {
+                        breakpoint: 1100,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    },
+                    {
+                        breakpoint: 530,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                        }
+                    }
+                ]
+           });
+
+           $('#testimonials-slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<a href="#" class="slick-arrow slick-prev"><</a>',
+                nextArrow: '<a href="#" class="slick-arrow slick-next">></a>'
+           });
+
+           navToggle.on('click', () => {
+               navMenu.css('right', '0');
+           });
+
+           $('#close-flyout').on('click', () => {
+                navMenu.css('right', '-100%');
+           });
+
+           $(document).on('click', (e) => {
+               let target = $(e.target);
+               if (!(target.closest('#nav-toggle').length > 0 || target.closest('#nav-menu').length > 0)) {
+                   navMenu.css('right', '-100%');
+               }
+           });
+
+           $(document).scroll(() => {
+               let scrollTop = $(document).scrollTop();
+
+               if (scrollTop > 0) {
+                   navMenu.addClass('is-sticky');
+                   logo.css('color', '#000');
+                   headerElem.css('background', '#fff');
+                   navToggle.css('border-color', '#000');
+                   navToggle.find('.strip').css('background-color', '#000');
+               } else {
+                   navMenu.removeClass('is-sticky');
+                   logo.css('color', '#fff');
+                   headerElem.css('background', 'transparent');
+                   navToggle.css('bordre-color', '#fff');
+                   navToggle.find('.strip').css('background-color', '#fff');
+               }
+
+               headerElem.css(scrollTop >= 200 ? {'padding': '0.5rem', 'box-shadow': '0 -4px 10px 1px #999'} : {'padding': '1rem 0', 'box-shadow': 'none' });
+           });
+
+           $(document).trigger('scroll');
+        });
+        </script>
+    {% endif %}
+{% endblock %}

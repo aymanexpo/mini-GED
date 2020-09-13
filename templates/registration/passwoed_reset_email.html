@@ -1,0 +1,4 @@
+You want to reset your password ?
+someone want to reset it for this email {{ email }}. If you was, follow the link below :
+
+{{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
